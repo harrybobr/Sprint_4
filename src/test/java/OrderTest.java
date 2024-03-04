@@ -10,7 +10,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 @RunWith(Parameterized.class)
 public class OrderTest {
@@ -47,9 +46,10 @@ public class OrderTest {
     };
   }
 
+  // true - FirefoxDriver, false - ChromeDriver
   @Before
   public void setUp() {
-    driver = new ChromeDriver();
+    driver = MainPage.getWebDriver(true);
   }
 
   @After
@@ -85,6 +85,7 @@ public class OrderTest {
     MatcherAssert.assertThat("Неправильный текст готового заказа:", orderPage.orderDoneMessage(), containsString(EXPECTED_DONE_ORDER_TEXT));
   }
 
+  
 
 
 }

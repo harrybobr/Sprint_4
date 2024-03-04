@@ -10,7 +10,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 @RunWith(Parameterized.class)
 public class FaqTest {
@@ -39,9 +38,10 @@ public class FaqTest {
     };
   }
 
+  // true - FirefoxDriver, false - ChromeDriver
   @Before
   public void setUp() {
-    driver = new ChromeDriver();
+    driver = MainPage.getWebDriver(false);
   }
 
   @After

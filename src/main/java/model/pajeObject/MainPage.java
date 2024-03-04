@@ -2,6 +2,8 @@ package model.pajeObject;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -39,6 +41,15 @@ public class MainPage {
     driver.get(PAGE_URL);
     return this;
   }
+
+  public static WebDriver getWebDriver(boolean useFirefox) {
+    if (useFirefox) {
+      return new FirefoxDriver();
+    } else {
+      return new ChromeDriver();
+    }
+  }
+
 
   public void clickCookieButton() {
     driver.findElement(cookieButton).click();
